@@ -17,3 +17,7 @@ router.get('/', (req, res, next) => {
   //   });
   // });
 });
+
+router.get('/seating-map', (req, res, next) => {
+  res.render('seating-map');
+});
