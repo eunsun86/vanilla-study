@@ -1,3 +1,31 @@
 <main>
-    hello world
+    <h3>날짜 선택하기</h3>
+    <div id='calendar'></div>
 </main>
+
+<script src='http://code.jquery.com/jquery-1.11.3.min.js'></script>
+<script src='https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.11.1/moment.min.js'></script>
+<script src='https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/2.6.0/fullcalendar.min.js'></script>
+<script type="text/javascript">
+    $(document).ready(function() {
+        // page is ready
+        $('#calendar').fullCalendar({
+            // calendar properties
+            theme: false,
+            editable: true,
+            header: {
+                left: 'prev,next',
+                center: 'title',
+                right: ''
+            },
+        });
+
+        $('.fc-body').on('click', function (e) {
+            if (!e.target.classList.contains('fc-day') && !e.target.classList.contains('fc-day-number')) {
+                return;
+            }
+
+            console.log(new Date(e.target.dataset.date));
+        });
+    });
+</script>
