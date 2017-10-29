@@ -1,0 +1,55 @@
+@import url(http://fonts.googleapis.com/earlyaccess/notosanskr.css);
+* {
+  font-family: 'Noto Sans KR', sans-serif;
+}
+header {
+  text-align: center;
+}
+h1 {
+  font-size: 46px;
+}
+h2 {
+  font-size: 20px;
+  font-weight: normal;
+}
+.seating-map {
+  width: 856px;
+  margin: 50px auto;
+}
+.seating-table {
+  width: 300px;
+  height: 200px;
+  border: 1px solid black;
+  display: inline-block;
+  margin-right: 50px;
+  vertical-align: top;
+  margin-top: 50px;
+}
+.seating-table.standing-table {
+  width: 150px;
+  height: 300px;
+  margin-right: 0;
+  vertical-align: baseline;
+  margin-top: 0;
+}
+.seating-table.standing-table .seat {
+  width: 150px;
+  height: 150px;
+}
+.seating-table.standing-table .seat .seat-number {
+  line-height: 150px;
+}
+.seat {
+  width: 150px;
+  height: 100px;
+  display: inline-block;
+}
+.seat-number {
+  line-height: 100px;
+  text-align: center;
+  font-size: 20px;
+  cursor: pointer;
+}
+.seat-number:hover {
+  background-color: #FFE082;
+}

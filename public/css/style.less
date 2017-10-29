@@ -1,8 +1,71 @@
-body {
-  padding: 50px;
-  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+@import url(http://fonts.googleapis.com/earlyaccess/notosanskr.css);
+
+@seat-height: 100px;
+@seat-width: 150px;
+@table-gap: 50px;
+
+* {
+  font-family: 'Noto Sans KR', sans-serif;
 }
 
-a {
-  color: #00B7FF;
+header {
+  text-align: center;
+}
+
+h1 {
+  font-size: 46px;
+}
+
+h2 {
+  font-size: 20px;
+  font-weight: normal;
+}
+
+.seating-map {
+  width: (@seat-width * 5) + (@table-gap * 2) + 6;
+  margin: @table-gap auto;
+}
+
+.seating-table {
+  width: @seat-width * 2;
+  height: 200px;
+  border: 1px solid black;
+  display: inline-block;
+  margin-right: @table-gap;
+  vertical-align: top;
+  margin-top: @table-gap;
+
+  &.standing-table {
+    width: @seat-width;
+    height: @seat-width * 2;
+    margin-right: 0;
+    vertical-align: baseline;
+    margin-top: 0;
+
+    .seat {
+      width: @seat-width;
+      height: @seat-width;
+
+      .seat-number {
+        line-height: @seat-width;
+      }
+    }
+  }
+}
+
+.seat {
+  width: @seat-width;
+  height: @seat-height;
+  display: inline-block;
+}
+
+.seat-number {
+  line-height: @seat-height;
+  text-align: center;
+  font-size: 20px;
+  cursor: pointer;
+
+  &:hover {
+    background-color: #FFE082;
+  }
 }

@@ -8,11 +8,12 @@ module.exports = (app) => {
 };
 
 router.get('/', (req, res, next) => {
-  Article.find((err, articles) => {
-    if (err) return next(err);
-    res.render('index', {
-      title: 'Generator-Express MVC',
-      articles: articles
-    });
-  });
+  res.render('index');
+  // Article.find((err, articles) => {
+  //   if (err) return next(err);
+  //   res.render('index', {
+  //     title: 'Generator-Express MVC',
+  //     articles: articles
+  //   });
+  // });
 });
