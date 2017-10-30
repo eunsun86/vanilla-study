@@ -33,17 +33,30 @@ router.get('/seating-map', (req, res, next) => {
       if (error) {
         res.render('error');
       } else {
-        var existingReservations = new Array(20);
+        var existingReservations = [];
 
         reservations.forEach((reservation) => {
           existingReservations[reservation.seat_number - 1] = reservation;
         });
 
-        console.log(existingReservations);
+        [0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19].forEach((seat) => {
+          if (!existingReservations[seat]) {
+            existingReservations[seat] = {
+              seat_number: seat + 1,
+              dates: dates.join('-'),
+              username: null
+            };
+          }
+        });
 
         res.render('seating-map', {
           reservations: existingReservations,
-          dates: dates.join('-')
+          tableOne: existingReservations.slice(0, 4),
+          tableTwo: existingReservations.slice(4, 8),
+          tableThree: existingReservations.slice(8, 10),
+          tableFour: existingReservations.slice(10, 14),
+          tableFive: existingReservations.slice(14, 18),
+          tableSix: existingReservations.slice(18, 20)
         });
       }
     });

@@ -132,13 +132,21 @@ header {
   text-align: center;
   padding: 35px 20px 0;
 }
-h1 {
-  font-size: 46px;
-  margin-bottom: 30px;
-  line-height: 46px;
+header figure {
+  width: 700px;
+  margin: 30px auto;
+}
+header figure a {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+header figure img {
+  width: 500px;
+  display: inline-block;
 }
 h2 {
-  font-size: 20px;
+  font-size: 18px;
   font-weight: normal;
   line-height: 30px;
 }
@@ -151,16 +159,18 @@ h3 {
 a,
 a:active,
 a:visited,
-a:link {
+a:hover,
+a:focus {
   text-decoration: none;
+  color: black;
 }
 main {
   padding: 50px 50px 50px;
-  background-color: #B2DFDB;
+  background-color: #BBDEFB;
   margin-top: 50px;
 }
 .seating-map {
-  width: 862px;
+  width: 880px;
   margin: 0 auto;
 }
 .seating-map:first-of-type {
@@ -169,8 +179,8 @@ main {
 .seating-table {
   width: 300px;
   height: 200px;
-  border: 2px solid black;
-  border-radius: 2px;
+  border: 5px solid black;
+  border-radius: 5px;
   display: inline-block;
   margin-right: 50px;
   vertical-align: top;
@@ -192,9 +202,10 @@ main {
   line-height: 150px;
 }
 .seat {
-  width: 148px;
+  width: 150px;
   height: 100px;
-  display: inline-block;
+  display: block;
+  float: left;
 }
 .seat a {
   display: inline-block;
@@ -202,13 +213,13 @@ main {
   height: 100%;
 }
 .seat.taken {
-  background-color: #9E9E9E;
+  background-color: #BDBDBD;
 }
 .seat.taken .seat-number {
   cursor: not-allowed;
 }
 .seat.taken .seat-number:hover {
-  background-color: #9E9E9E;
+  background-color: #BDBDBD;
 }
 .seat-number {
   line-height: 100px;
@@ -218,5 +229,5 @@ main {
   cursor: pointer;
 }
 .seat-number:hover {
-  background-color: #bdbdbd;
+  background-color: #BDBDBD;
 }

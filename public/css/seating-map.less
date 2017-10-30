@@ -6,7 +6,7 @@
 @table-gap: 50px;
 
 .seating-map {
-  width: (@seat-width * 5) + (@table-gap * 2) + 12;
+  width: (@seat-width * 5) + (@table-gap * 2) + 30;
   margin: 0 auto;
 
   &:first-of-type {
@@ -17,8 +17,8 @@
 .seating-table {
   width: @seat-width * 2;
   height: 200px;
-  border: 2px solid black;
-  border-radius: 2px;
+  border: 5px solid black;
+  border-radius: 5px;
   display: inline-block;
   margin-right: @table-gap;
   vertical-align: top;
@@ -44,9 +44,10 @@
 }
 
 .seat {
-  width: @seat-width - 2;
+  width: @seat-width;
   height: @seat-height;
-  display: inline-block;
+  display: block;
+  float: left;
 
   a {
     display: inline-block;
@@ -55,13 +56,13 @@
   }
 
   &.taken {
-    background-color: #9E9E9E;
+    background-color: #BDBDBD;
 
     .seat-number {
       cursor: not-allowed;
 
       &:hover {
-        background-color: #9E9E9E;
+        background-color: #BDBDBD;
       }
     }
   }
@@ -75,6 +76,6 @@
   cursor: pointer;
 
   &:hover {
-    background-color: #bdbdbd;
+    background-color: #BDBDBD;
   }
 }
