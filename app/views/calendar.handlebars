@@ -1,3 +1,6 @@
+<link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/2.6.0/fullcalendar.css' />
+<link rel="stylesheet" type="text/css" href="/css/calendar.css">
+
 <main>
     <h3>날짜 선택하기</h3>
     <div id='calendar'></div>
@@ -8,10 +11,12 @@
 <script src='https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/2.6.0/fullcalendar.min.js'></script>
 <script type="text/javascript">
     $(document).ready(function() {
-        // page is ready
         $('#calendar').fullCalendar({
-            // calendar properties
             theme: false,
+            defaultView: 'month',
+            validRange: {
+              start: '2017-10-30'
+            },
             editable: true,
             header: {
                 left: 'prev,next',
@@ -20,12 +25,20 @@
             },
         });
 
-        $('.fc-body').on('click', function (e) {
+        $('.fc-view').on('click', function (e) {
             if (!e.target.classList.contains('fc-day') && !e.target.classList.contains('fc-day-number')) {
                 return;
             }
 
-            console.log(new Date(e.target.dataset.date));
+            if (e.target.classList.contains('fc-past')) {
+              return;
+            }
+
+            if (!e.target.classList.contains('fc-sat') && !e.target.classList.contains('fc-sun')) {
+              return;
+            }
+
+            window.location.href = '/seating-map?date=' + e.target.dataset.date;
         });
     });
 </script>

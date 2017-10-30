@@ -1,49 +1,54 @@
+<link rel="stylesheet" type="text/css" href="/css/seating-map.css">
+
 <main>
     <h3>자리 배치도</h3>
     <div class="seating-map">
         <div class="seating-table">
-            <div class="seat">
-                <a href="">
-                    <div class="seat-number">1</div>
-                </a>
-            </div><div class="seat">
-                <a href="">
-                    <div class="seat-number">2</div>
-                </a>
-            </div><div class="seat">
-                <a href="">
-                    <div class="seat-number">3</div>
-                </a>
-            </div><div class="seat">
-                <a href="">
-                    <div class="seat-number">4</div>
-                </a>
-            </div>
+            {{#if 1 > 0 }}
+                <div>hello</div>
+                {{!-- {{#if reservations[@index] !== undefined}}
+                    <div class="seat taken">
+                        <a href="javascript:void(0);">
+                            <div class="seat-number">1</div>
+                        </a>
+                    </div>
+                {{#else}}
+                    <div class="seat">
+                        <a href="/reservation?dates={{dates}}&seat-number={{@index + 1}}">
+                            <div class="seat-number">{{@index + 1}}</div>
+                        </a>
+                    </div>
+                {{/if}} --}}
+            {{/if}}
         </div><div class="seating-table">
             <div class="seat">
-                <a href="">
+                <a href="/reservation?dates={{dates}}&seat-number=5">
                     <div class="seat-number">5</div>
                 </a>
-            </div><div class="seat">
-                <a href="">
+            </div>
+            <div class="seat">
+                <a href="/reservation?dates={{dates}}&seat-number=6">
                     <div class="seat-number">6</div>
                 </a>
-            </div><div class="seat">
-                <a href="">
+            </div>
+            <div class="seat">
+                <a href="/reservation?dates={{dates}}&seat-number=7">
                     <div class="seat-number">7</div>
                 </a>
-            </div><div class="seat">
-                <a href="">
+            </div>
+            <div class="seat">
+                <a href="/reservation?dates={{dates}}&seat-number=8">
                     <div class="seat-number">8</div>
                 </a>
             </div>
         </div><div class="seating-table standing-table">
             <div class="seat">
-                <a href="">
+                <a href="/reservation?dates={{dates}}&seat-number=9">
                     <div class="seat-number">9</div>
                 </a>
-            </div><div class="seat">
-                <a href="">
+            </div>
+            <div class="seat">
+                <a href="/reservation?dates={{dates}}&seat-number=10">
                     <div class="seat-number">10</div>
                 </a>
             </div>
@@ -53,47 +58,54 @@
     <div class="seating-map">
         <div class="seating-table">
             <div class="seat">
-                <a href="">
+                <a href="/reservation?dates={{dates}}&seat-number=11">
                     <div class="seat-number">11</div>
                 </a>
-            </div><div class="seat">
-                <a href="">
+            </div>
+            <div class="seat">
+                <a href="/reservation?dates={{dates}}&seat-number=12">
                     <div class="seat-number">12</div>
                 </a>
-            </div><div class="seat">
-                <a href="">
+            </div>
+            <div class="seat">
+                <a href="/reservation?dates={{dates}}&seat-number=13">
                     <div class="seat-number">13</div>
                 </a>
-            </div><div class="seat">
-                <a href="">
+            </div>
+            <div class="seat">
+                <a href="/reservation?dates={{dates}}&seat-number=14">
                     <div class="seat-number">14</div>
                 </a>
             </div>
         </div><div class="seating-table">
             <div class="seat">
-                <a href="">
+                <a href="/reservation?dates={{dates}}&seat-number=15">
                     <div class="seat-number">15</div>
                 </a>
-            </div><div class="seat">
-                <a href="">
+            </div>
+            <div class="seat">
+                <a href="/reservation?dates={{dates}}&seat-number=16">
                     <div class="seat-number">16</div>
                 </a>
-            </div><div class="seat">
-                <a href="">
+            </div>
+            <div class="seat">
+                <a href="/reservation?dates={{dates}}&seat-number=17">
                     <div class="seat-number">17</div>
                 </a>
-            </div><div class="seat">
-                <a href="">
+            </div>
+            <div class="seat">
+                <a href="/reservation?dates={{dates}}&seat-number=18">
                     <div class="seat-number">18</div>
                 </a>
             </div>
         </div><div class="seating-table standing-table">
             <div class="seat">
-                <a href="">
+                <a href="/reservation?dates={{dates}}&seat-number=19">
                     <div class="seat-number">19</div>
                 </a>
-            </div><div class="seat">
-                <a href="">
+            </div>
+            <div class="seat">
+                <a href="/reservation?dates={{dates}}&seat-number=20">
                     <div class="seat-number">20</div>
                 </a>
             </div>
