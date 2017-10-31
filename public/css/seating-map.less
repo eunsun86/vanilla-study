@@ -38,6 +38,10 @@
       .seat-number {
         line-height: @seat-width;
       }
+
+      &.taken .seat-number {
+        line-height: 85px;
+      }
     }
   }
 }
@@ -55,13 +59,35 @@
   }
 
   &.taken {
-    background-color: #E0E0E0;
+    background-color: #424242;
 
     .seat-number {
-      cursor: not-allowed;
+      height: 50%;
+      color: #FAFAFA;
+      line-height: @seat-height / 2;
+      cursor: default;
 
       &:hover {
-        background-color: #E0E0E0;
+        background-color: #424242;
+      }
+    }
+
+    .buttons {
+      text-align: center;
+      margin: 0 25px;
+
+      a {
+        background-color: #F44336;
+        opacity: 0.3;
+        color: #fff;
+        font-size: 16px;
+        border-radius: 2px;
+        padding: 5px;
+        box-sizing: border-box;
+
+        &:hover {
+          opacity: 1;
+        }
       }
     }
   }
@@ -75,6 +101,7 @@
   cursor: pointer;
 
   &:hover {
-    background-color: #FFFDE7;
+    background-color: #424242;
+    color: #fff;
   }
 }

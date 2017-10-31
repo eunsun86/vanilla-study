@@ -7,7 +7,8 @@ const cookieParser = require('cookie-parser');
 const bodyParser = require('body-parser');
 const compress = require('compression');
 const methodOverride = require('method-override');
-const exphbs  = require('express-handlebars');
+const exphbs = require('express-handlebars');
+const { helpers } = require('handlebars-helper');
 
 module.exports = (app, config) => {
   const env = process.env.NODE_ENV || 'development';
@@ -25,7 +26,8 @@ module.exports = (app, config) => {
         }
 
         return options.inverse(this);
-      }
+      },
+      encode: helpers.encode
     }
   }));
   app.set('views', config.root + '/app/views');

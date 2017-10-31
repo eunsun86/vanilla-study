@@ -128,6 +128,35 @@ a img {
 * {
   font-family: 'Nanum Gothic', sans-serif;
 }
+.button-success,
+.button-error,
+.button-warning,
+.button-secondary {
+  color: white;
+  border-radius: 4px;
+  text-shadow: 0 1px 1px rgba(0, 0, 0, 0.2);
+}
+.button-success {
+  background: #1cb841;
+  /* this is a green */
+}
+.button-error {
+  background: #ca3c3c;
+  /* this is a maroon */
+}
+.button-warning {
+  background: #df7514;
+  /* this is an orange */
+}
+.button-secondary {
+  background: #42b8dd;
+  /* this is a light blue */
+}
+.error-message {
+  color: #ca3c3c;
+  font-size: 18px;
+  display: none;
+}
 header {
   text-align: center;
   padding: 50px 20px;
@@ -214,6 +243,15 @@ footer .footer-logo {
 }
 .container {
   padding: 50px;
+}
+figure {
+  width: 200px;
+  height: 200px;
+  margin: 0 auto 50px;
+}
+figure img {
+  width: 100%;
+  height: 100%;
 }
 .success-message {
   text-align: center;

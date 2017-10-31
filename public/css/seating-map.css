@@ -128,6 +128,35 @@ a img {
 * {
   font-family: 'Nanum Gothic', sans-serif;
 }
+.button-success,
+.button-error,
+.button-warning,
+.button-secondary {
+  color: white;
+  border-radius: 4px;
+  text-shadow: 0 1px 1px rgba(0, 0, 0, 0.2);
+}
+.button-success {
+  background: #1cb841;
+  /* this is a green */
+}
+.button-error {
+  background: #ca3c3c;
+  /* this is a maroon */
+}
+.button-warning {
+  background: #df7514;
+  /* this is an orange */
+}
+.button-secondary {
+  background: #42b8dd;
+  /* this is a light blue */
+}
+.error-message {
+  color: #ca3c3c;
+  font-size: 18px;
+  display: none;
+}
 header {
   text-align: center;
   padding: 50px 20px;
@@ -244,6 +273,9 @@ footer .footer-logo {
 .seating-table.standing-table .seat .seat-number {
   line-height: 150px;
 }
+.seating-table.standing-table .seat.taken .seat-number {
+  line-height: 85px;
+}
 .seat {
   width: 150px;
   height: 100px;
@@ -256,13 +288,32 @@ footer .footer-logo {
   height: 100%;
 }
 .seat.taken {
-  background-color: #E0E0E0;
+  background-color: #424242;
 }
 .seat.taken .seat-number {
-  cursor: not-allowed;
+  height: 50%;
+  color: #FAFAFA;
+  line-height: 50px;
+  cursor: default;
 }
 .seat.taken .seat-number:hover {
-  background-color: #E0E0E0;
+  background-color: #424242;
+}
+.seat.taken .buttons {
+  text-align: center;
+  margin: 0 25px;
+}
+.seat.taken .buttons a {
+  background-color: #F44336;
+  opacity: 0.3;
+  color: #fff;
+  font-size: 16px;
+  border-radius: 2px;
+  padding: 5px;
+  box-sizing: border-box;
+}
+.seat.taken .buttons a:hover {
+  opacity: 1;
 }
 .seat-number {
   line-height: 100px;
@@ -272,5 +323,6 @@ footer .footer-logo {
   cursor: pointer;
 }
 .seat-number:hover {
-  background-color: #FFFDE7;
+  background-color: #424242;
+  color: #fff;
 }

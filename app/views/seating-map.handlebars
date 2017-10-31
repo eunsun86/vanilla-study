@@ -1,3 +1,4 @@
+<link rel="stylesheet" href="https://unpkg.com/purecss@1.0.0/build/pure-min.css" integrity="sha384-nn4HPE8lTHyVtfCBi5yW9d20FjT8BJwUXyWZT9InLYax14RDjBj46LmSztkmNP9w" crossorigin="anonymous">
 <link rel="stylesheet" type="text/css" href="/css/seating-map.css">
 
 <main>
@@ -7,15 +8,16 @@
             {{#tableOne}}
                 {{#ifEqual username null}}
                     <div class="seat">
-                        <a href="/reservation?dates={{dates}}&seat-number={{seat_number}}">
+                        <a href="/reservation?dates={{date}}&seat-number={{seat_number}}">
                             <div class="seat-number">{{seat_number}}</div>
                         </a>
                     </div>
                 {{else}}
                     <div class="seat taken">
-                        <a href="javascript:void(0);">
-                            <div class="seat-number">{{username}}</div>
-                        </a>
+                        <div class="seat-number">{{username}}</div>
+                        <div class="buttons">
+                            <a href="/reservation?dates={{date}}&seat-number={{seat_number}}&username={{encode username}}&edit=true">삭제</a>
+                        </div>
                     </div>
                 {{/ifEqual}}
             {{/tableOne}}
@@ -23,15 +25,16 @@
             {{#tableTwo}}
                 {{#ifEqual username null}}
                     <div class="seat">
-                        <a href="/reservation?dates={{dates}}&seat-number={{seat_number}}">
+                        <a href="/reservation?dates={{date}}&seat-number={{seat_number}}">
                             <div class="seat-number">{{seat_number}}</div>
                         </a>
                     </div>
                 {{else}}
                     <div class="seat taken">
-                        <a href="javascript:void(0);">
-                            <div class="seat-number">{{username}}</div>
-                        </a>
+                        <div class="seat-number">{{username}}</div>
+                        <div class="buttons">
+                            <a href="/reservation?dates={{date}}&seat-number={{seat_number}}&username={{encode username}}&edit=true">삭제</a>
+                        </div>
                     </div>
                 {{/ifEqual}}
             {{/tableTwo}}
@@ -39,15 +42,16 @@
             {{#tableThree}}
                 {{#ifEqual username null}}
                     <div class="seat">
-                        <a href="/reservation?dates={{dates}}&seat-number={{seat_number}}">
+                        <a href="/reservation?dates={{date}}&seat-number={{seat_number}}">
                             <div class="seat-number">{{seat_number}}</div>
                         </a>
                     </div>
                 {{else}}
                     <div class="seat taken">
-                        <a href="javascript:void(0);">
-                            <div class="seat-number">{{username}}</div>
-                        </a>
+                        <div class="seat-number">{{username}}</div>
+                        <div class="buttons">
+                            <a href="/reservation?dates={{date}}&seat-number={{seat_number}}&username={{encode username}}&edit=true">삭제</a>
+                        </div>
                     </div>
                 {{/ifEqual}}
             {{/tableThree}}
@@ -59,15 +63,16 @@
             {{#tableFour}}
                 {{#ifEqual username null}}
                     <div class="seat">
-                        <a href="/reservation?dates={{dates}}&seat-number={{seat_number}}">
+                        <a href="/reservation?dates={{date}}&seat-number={{seat_number}}">
                             <div class="seat-number">{{seat_number}}</div>
                         </a>
                     </div>
                 {{else}}
                     <div class="seat taken">
-                        <a href="javascript:void(0);">
-                            <div class="seat-number">{{username}}</div>
-                        </a>
+                        <div class="seat-number">{{username}}</div>
+                        <div class="buttons">
+                            <a href="/reservation?dates={{date}}&seat-number={{seat_number}}&username={{encode username}}&edit=true">삭제</a>
+                        </div>
                     </div>
                 {{/ifEqual}}
             {{/tableFour}}
@@ -75,15 +80,16 @@
             {{#tableFive}}
                 {{#ifEqual username null}}
                     <div class="seat">
-                        <a href="/reservation?dates={{dates}}&seat-number={{seat_number}}">
+                        <a href="/reservation?dates={{date}}&seat-number={{seat_number}}">
                             <div class="seat-number">{{seat_number}}</div>
                         </a>
                     </div>
                 {{else}}
                     <div class="seat taken">
-                        <a href="javascript:void(0);">
-                            <div class="seat-number">{{username}}</div>
-                        </a>
+                        <div class="seat-number">{{username}}</div>
+                        <div class="buttons">
+                            <a href="/reservation?dates={{date}}&seat-number={{seat_number}}&username={{encode username}}&edit=true">삭제</a>
+                        </div>
                     </div>
                 {{/ifEqual}}
             {{/tableFive}}
@@ -91,15 +97,16 @@
             {{#tableSix}}
                 {{#ifEqual username null}}
                     <div class="seat">
-                        <a href="/reservation?dates={{dates}}&seat-number={{seat_number}}">
+                        <a href="/reservation?dates={{date}}&seat-number={{seat_number}}">
                             <div class="seat-number">{{seat_number}}</div>
                         </a>
                     </div>
                 {{else}}
                     <div class="seat taken">
-                        <a href="javascript:void(0);">
-                            <div class="seat-number">{{username}}</div>
-                        </a>
+                        <div class="seat-number">{{username}}</div>
+                        <div class="buttons">
+                            <a href="/reservation?dates={{date}}&seat-number={{seat_number}}&username={{encode username}}&edit=true">삭제</a>
+                        </div>
                     </div>
                 {{/ifEqual}}
             {{/tableSix}}
