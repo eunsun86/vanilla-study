@@ -50,7 +50,6 @@ router.get('/seating-map', (req, res, next) => {
         });
 
         res.render('seating-map', {
-          reservations: existingReservations,
           tableOne: existingReservations.slice(0, 4),
           tableTwo: existingReservations.slice(4, 8),
           tableThree: existingReservations.slice(8, 10),
