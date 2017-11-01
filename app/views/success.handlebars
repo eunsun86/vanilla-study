@@ -5,6 +5,15 @@
         <figure>
             <img src="/images/thumbs_up.png" alt="성공">
         </figure>
+        {{#reservation}}
+        <div class="reservation-detail">
+            <ul>
+                <li>예약자명: <span class="highlight">{{username}}</span></li>
+                <li>예약날짜: <span class="highlight">{{date}}</span></li>
+                <li>예약좌석: <span class="highlight">{{seat_number}}</span></li>
+            </ul>
+        </div>
+        {{/reservation}}
         <div class="success-message">
             <a href="/">홈으로 돌아가기</a>
         </div>

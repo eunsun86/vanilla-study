@@ -37,6 +37,14 @@
 <script src='http://code.jquery.com/jquery-1.11.3.min.js'></script>
 <script type="text/javascript">
     var deleteButtonElement = document.querySelector('#delete-button');
+    var errorMessageElement = document.querySelector('.error-message');
+    var passwordInputElement = document.querySelector('#password');
+
+    $('#password').on('change textInput input', function () {
+        if (errorMessageElement.style.display === 'inline-block') {
+            errorMessageElement.style.display = 'none';
+        }
+    });
 
     deleteButtonElement.addEventListener('click', function (e) {
         var username = deleteButtonElement.form.username.value;
@@ -57,9 +65,7 @@
                 window.location.href = '/success';
             },
             error: function (error) {
-                var errorMessageElement = document.querySelector('.error-message');
-
-                if (error.status === 404) {
+                if (error.status === 401) {
                     errorMessageElement.style.display = 'inline-block';
                 } else {
                     window.location.href = '/error';

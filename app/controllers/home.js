@@ -72,7 +72,6 @@ router.get('/reservation', (req, res, next) => {
   }
 
   if (req.query.edit === 'true') {
-    console.log(req.query);
     res.render('delete-reservation', {
       seat_number: req.query['seat-number'],
       date: req.query.dates,
@@ -87,7 +86,7 @@ router.get('/reservation', (req, res, next) => {
 });
 
 router.post('/reservation', (req, res, next) => {
-  if (!req.body.username || !req.body.date || !req.body.seat_number) {
+  if (!req.body.username || !req.body.date || !req.body.seat_number || !req.body.password) {
     res.render('error');
     return;
   }
@@ -114,7 +113,9 @@ router.post('/reservation', (req, res, next) => {
       reservation.save()
         .then((data) => {
           console.log("[DATA]:" + data);
-          res.render('success');
+          res.render('success', {
+            reservation: data
+          });
         })
         .catch((error) => {
           console.error("[ERROR]:" + error);
@@ -140,8 +141,8 @@ router.delete('/reservation', (req, res, next) => {
       console.error("[ERROR]:" + error);
       res.sendStatus(500);
     } else if (reservation === null) {
-      console.log("[DATA]: NOT FOUND");
-      res.sendStatus(404);
+      console.log("[DATA]: Unauthorized");
+      res.sendStatus(401);
     } else {
       reservation.remove((error) => {
         if (error) {
