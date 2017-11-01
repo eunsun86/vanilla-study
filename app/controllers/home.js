@@ -200,3 +200,7 @@ router.get('/error', (req, res, next) => {
 router.get('/success', (req, res, next) => {
   res.render('success');
 });
+
+router.get('/mobile-guide', (req, res, next) => {
+  res.render('mobile-guide');
+});

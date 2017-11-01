@@ -22,6 +22,7 @@
     {{#if ENV_DEVELOPMENT}}
         <script src="http://localhost:35729/livereload.js"></script>
     {{/if}}
+    <script src='http://code.jquery.com/jquery-1.11.3.min.js'></script>
 </head>
 <body>
     <header>
@@ -50,5 +51,17 @@
             </ul>
         </div>
     </footer>
+
+    <script type="text/javascript">
+        $(document).ready(function () {
+            var $window = $(window);
+
+            if ($window.width() < 1000 && window.location.pathname !== '/mobile-guide') {
+                window.location.href = '/mobile-guide';
+            } else if ($window.width() > 1000 && window.location.pathname === '/mobile-guide') {
+                window.location.href = '/';
+            }
+        });
+    </script>
 </body>
 </html>
