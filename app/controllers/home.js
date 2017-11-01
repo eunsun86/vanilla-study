@@ -4,7 +4,9 @@ const Reservation = require('../models/Reservation');
 const sha256 = require('crypto-js/sha256');
 const hmacSHA512 = require('crypto-js/hmac-sha512');
 const Base64 = require('crypto-js/enc-base64');
-const { ENCRYPTION_KEY } = require('../../config/credentials.json');
+const nodemailer = require('nodemailer');
+const { getEmailTemplate } = require('../helpers');
+const { ENCRYPTION_KEY, GMAIL_PW } = require('../../config/credentials.json');
 
 module.exports = (app) => {
   app.use('/', router);
@@ -104,6 +106,7 @@ router.post('/reservation', (req, res, next) => {
       reservation.date = req.body.date;
       reservation.username = req.body.username;
       reservation.seat_number = req.body.seat_number;
+      reservation.email = req.body.email || '';
 
       const hashDigest = sha256(req.body.password);
       const hmacDigest = Base64.stringify(hmacSHA512(hashDigest, ENCRYPTION_KEY));
@@ -113,9 +116,43 @@ router.post('/reservation', (req, res, next) => {
       reservation.save()
         .then((data) => {
           console.log("[DATA]:" + data);
-          res.render('success', {
-            reservation: data
-          });
+
+          if (req.body.email) {
+            let transporter = nodemailer.createTransport({
+              service: 'gmail',
+              auth: {
+                user: 'ken@vanillacoding.co',
+                pass: GMAIL_PW
+              }
+            });
+
+            const mailOptions = {
+              from: 'ken@vanillacoding.co',
+              to: req.body.email,
+              subject: '바닐라 스터디 예약 확정',
+              html: getEmailTemplate({
+                username: req.body.username,
+                date: req.body.date,
+                seat_number: req.body.seat_number
+              })
+            };
+
+            transporter.sendMail(mailOptions, function (error, info) {
+              if (error) {
+                console.error("[ERROR]:" + error);
+              } else {
+                console.log("[INFO]:" + info);
+
+                res.render('success', {
+                  reservation: data
+                });
+              }
+            });
+          } else {
+            res.render('success', {
+              reservation: data
+            });
+          }
         })
         .catch((error) => {
           console.error("[ERROR]:" + error);
