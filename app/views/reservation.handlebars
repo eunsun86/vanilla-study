@@ -29,9 +29,19 @@
                     <span class="pure-form-message-inline">필수 입력 사항입니다.</span>
                 </div>
                 <div class="pure-controls">
-                    <button type="submit" class="pure-button pure-button-primary">예약</button>
+                    <button type="submit" class="submit pure-button pure-button-primary">예약</button>
                 </div>
             </fieldset>
         </form>
     </div>
 </main>
+
+<div class="overlay">
+    <img src="/images/spinner.gif">
+</div>
+
+<script type="text/javascript">
+    $('.submit').on('click', function () {
+        document.querySelector('.overlay').style.display = 'block';
+    });
+</script>
