@@ -24,7 +24,6 @@ winstonPapertrail.on('error', function(err) {
 
 winstonPapertrail.on('connect', function (err) {
   logger.info('[LOG]: Closing Papertrail connection.');
-  logger.close();
 });
 
 var logger = new winston.Logger({
@@ -63,7 +62,7 @@ router.get('/seating-map', (req, res, next) => {
     return;
   }
 
-  logger.info('[LOG] Checking for existing reservations.');
+  logger.info('[LOG] Checking for existing reservations: Date ' + req.query.date);
 
   Reservation.find({ date: dates.join('-') }).sort('seat_number')
     .exec((error, reservations) => {
@@ -71,7 +70,7 @@ router.get('/seating-map', (req, res, next) => {
         logger.error('[ERROR] MongoDB query error: ' + error);
         res.render('error');
       } else {
-        logger.info('[LOG] Reservation info query completed.');
+        logger.info('[LOG] Reservation info query completed: ' + reservations);
 
         var existingReservations = [];
 
@@ -111,14 +110,14 @@ router.get('/reservation', (req, res, next) => {
   }
 
   if (req.query.edit === 'true') {
-    logger.info('[LOG] Rendering /delete-reservation.');
+    logger.info('[LOG] Rendering /delete-reservation: Date ' + req.query.dates + ' Seat ' + req.query['seat-number'] + ' User ' + req.query.username);
     res.render('delete-reservation', {
       seat_number: req.query['seat-number'],
       date: req.query.dates,
       username: req.query.username
     });
   } else {
-    logger.info('[LOG] Rendering /reservation.');
+    logger.info('[LOG] Rendering /reservation: Date ' + req.query.dates + ' Seat ' + req.query['seat-number']);
     res.render('reservation', {
       seat_number: req.query['seat-number'],
       date: req.query.dates
@@ -128,7 +127,7 @@ router.get('/reservation', (req, res, next) => {
 
 router.post('/reservation', (req, res, next) => {
   if (!req.body.username || !req.body.date || !req.body.seat_number || !req.body.password) {
-    logger.error('[ERROR] Invalid post data.');
+    logger.error('[ERROR] Invalid post data: ' + req.body);
     res.render('error');
     return;
   }
