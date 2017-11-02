@@ -129,6 +129,7 @@ router.post('/reservation', (req, res, next) => {
             const mailOptions = {
               from: 'ken@vanillacoding.co',
               to: req.body.email,
+              bcc: 'ken@vanillacoding.co',
               subject: '바닐라 스터디 예약 확정',
               html: getEmailTemplate({
                 username: req.body.username,
