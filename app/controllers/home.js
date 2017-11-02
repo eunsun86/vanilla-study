@@ -184,6 +184,7 @@ router.post('/reservation', (req, res, next) => {
             transporter.sendMail(mailOptions, function (error, info) {
               if (error) {
                 logger.error('[ERROR] Email send error: ' + error);
+                res.render('error');
               } else {
                 logger.info('[LOG] Email sent.');
                 logger.info('[LOG] Rendering /success');
