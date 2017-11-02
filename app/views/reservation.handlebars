@@ -31,6 +31,9 @@
                 <div class="pure-controls">
                     <button type="submit" class="submit pure-button pure-button-primary">예약</button>
                 </div>
+                <div class="pure-controls">
+                    <span class="pure-form-message-inline error-message">올바른 값을 입력해주세요.</span>
+                </div>
             </fieldset>
         </form>
     </div>
@@ -41,7 +44,27 @@
 </div>
 
 <script type="text/javascript">
-    $('.submit').on('click', function () {
+    var nameFieldElement = document.querySelector('#username');
+    var passwordFieldElement = document.querySelector('#password');
+    var submitButtonElement = document.querySelector('.submit.pure-button');
+    var errorMessageElement = document.querySelector('.error-message');
+
+    $('#password, #username').on('change textInput input', function () {
+        if (errorMessageElement.style.display === 'inline-block') {
+            errorMessageElement.style.display = 'none';
+        }
+    });
+
+    submitButtonElement.addEventListener('click', function (e) {
+        console.log('fff');
+
+        if (nameFieldElement.value.trim().length < 1 || passwordFieldElement.value.trim().length < 1) {
+            errorMessageElement.style.display = 'inline-block';
+            e.preventDefault();
+
+            return false;
+        }
+
         document.querySelector('.overlay').style.display = 'block';
     });
 </script>
