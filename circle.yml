@@ -17,5 +17,5 @@ deployment:
   production:
     branch: master
     commands:
-      - eb use vanilla-study --profile eb-deploy
-      - eb deploy --profile eb-deploy
+      - eb use vanilla-study --profile default
+      - eb deploy --profile default
