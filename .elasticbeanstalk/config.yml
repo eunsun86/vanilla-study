@@ -1,5 +1,7 @@
 branch-defaults:
-  default:
+  master:
+    environment: vanilla-study
+  develop:
     environment: vanilla-study-develop
 environment-defaults:
   vanilla-study-develop:
