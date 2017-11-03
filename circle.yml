@@ -1,0 +1,18 @@
+machine:
+  node:
+    version: 6.9.4
+dependencies:
+  pre:
+    - pip install awsebcli
+    - npm install
+deployment:
+  develop:
+    branch: develop
+    commands:
+      - eb use vanilla-study-develop --profile eb-deploy
+      - eb deploy --profile eb-deploy
+  production:
+    branch: master
+    commands:
+      - eb use vanilla-study --profile eb-deploy
+      - eb deploy --profile eb-deploy
