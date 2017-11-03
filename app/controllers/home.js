@@ -6,7 +6,8 @@ const hmacSHA512 = require('crypto-js/hmac-sha512');
 const Base64 = require('crypto-js/enc-base64');
 const nodemailer = require('nodemailer');
 const { getEmailTemplate } = require('../helpers');
-const { ENCRYPTION_KEY, GMAIL_PW } = require('../../config/credentials.json');
+const ENCRYPTION_KEY = "VAnILla__cOd!nG!";
+const GMAIL_PW = process.env.GMAIL_PW;
 const winston = require('winston');
 
 require('winston-papertrail').Papertrail;

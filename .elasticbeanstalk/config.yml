@@ -4,8 +4,11 @@ branch-defaults:
   master:
     environment: vanilla-study
 environment-defaults:
+  vanilla-study:
+    branch: master
+    repository: null
   vanilla-study-develop:
-    branch: null
+    branch: develop
     repository: null
 global:
   application_name: Vanilla Study
