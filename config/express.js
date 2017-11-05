@@ -44,36 +44,29 @@ module.exports = (app, config) => {
   app.use(express.static(config.root + '/public'));
   app.use(methodOverride());
 
-  var controllers = glob.sync(config.root + '/app/controllers/*.js');
-  controllers.forEach((controller) => {
-    require(controller)(app);
-  });
-
-  app.use((req, res, next) => {
-    var err = new Error('Not Found');
-    err.status = 404;
-    next(err);
-  });
+  require('./routes')(app);
 
   if (app.get('env') === 'development') {
-    app.use((err, req, res, next) => {
+    app.use(function(err, req, res, next) {
       res.status(err.status || 500);
+
       res.render('error', {
-        message: err.message,
-        error: err,
-        title: 'error'
+          message: err.message,
+          status: err.status,
+          stack: err.stack
+      });
+    });
+  } else {
+    app.use(function(err, req, res, next) {
+      res.status(err.status || 500);
+
+      res.render('error', {
+          message: err.message,
+          status: err.status,
+          stack: null
       });
     });
   }
-
-  app.use((err, req, res, next) => {
-    res.status(err.status || 500);
-    res.render('error', {
-      message: err.message,
-      error: {},
-      title: 'error'
-    });
-  });
 
   return app;
 };

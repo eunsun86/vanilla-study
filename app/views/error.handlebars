@@ -1,5 +1,10 @@
 <link rel="stylesheet" type="text/css" href="/css/index.css">
 
 <main>
-    <h3>오류가 발생했습니다.</h3>
+    <h3>
+      {{ message }}
+    </h3>
+    {{#stack}}
+      <p>{{ this }}</p>
+    {{/stack}}
 </main>
