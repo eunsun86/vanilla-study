@@ -10,35 +10,45 @@ const { getEmailTemplate } = require('../helpers');
 const ENCRYPTION_KEY = "VAnILla__cOd!nG!";
 const GMAIL_PW = process.env.GMAIL_PW;
 
+const { dateValidator, seatNumberValidator } = require('../middlewares/validator');
+const { BadRequestError } = require('../helpers/errors');
+
 module.exports = (router) => {
   router.get('/reservation', (req, res, next) => {
-    if (Number(req.query['seat-number']) > 20 || Number(req.query['seat-number']) < 1) {
-      logger.error('[ERROR] Invalid seat number: Range is 1 - 20.');
-      res.render('error');
-      return;
+    try {
+      var seatNumber = seatNumberValidator(req.query['seat-number']);
+      var dates = dateValidator(req.query.dates).join('-');
+    } catch (error) {
+      return next(error);
     }
 
     if (req.query.edit === 'true') {
-      logger.info('[LOG] Rendering /delete-reservation: Date ' + req.query.dates + ' Seat ' + req.query['seat-number'] + ' User ' + req.query.username);
+      logger.info('[LOG] Rendering /delete-reservation: Date ' + dates + ' Seat ' + seatNumber + ' User ' + req.query.username);
       res.render('delete-reservation', {
-        seat_number: req.query['seat-number'],
-        date: req.query.dates,
+        seat_number: seatNumber,
+        date: dates,
         username: req.query.username
       });
     } else {
-      logger.info('[LOG] Rendering /reservation: Date ' + req.query.dates + ' Seat ' + req.query['seat-number']);
+      logger.info('[LOG] Rendering /reservation: Date ' + dates + ' Seat ' + seatNumber);
       res.render('reservation', {
-        seat_number: req.query['seat-number'],
-        date: req.query.dates
+        seat_number: seatNumber,
+        date: dates
       });
     }
   });
 
   router.post('/reservation', (req, res, next) => {
-    if (!req.body.username || !req.body.date || !req.body.seat_number || !req.body.password) {
-      logger.error('[ERROR] Invalid post data: ' + req.body);
-      res.render('error');
-      return;
+    try {
+      var seatNumber = seatNumberValidator(req.body.seat_number);
+      var dates = dateValidator(req.body.date).join('-');
+    } catch (error) {
+      return next(error);
+    }
+
+    if (!req.body.username || !req.body.password) {
+      logger.error('[ERROR] Username and Password are required.');
+      return next(new BadRequestError('이름과 비밀번호는 필수입니다.'));
     }
 
     Reservation.findOne({

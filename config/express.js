@@ -48,7 +48,8 @@ module.exports = (app, config) => {
 
   if (app.get('env') === 'development') {
     app.use(function(err, req, res, next) {
-      res.status(err.status || 500);
+      err.status = err.status || 500;
+      res.status(err.status);
 
       res.render('error', {
           message: err.message,
@@ -58,7 +59,8 @@ module.exports = (app, config) => {
     });
   } else {
     app.use(function(err, req, res, next) {
-      res.status(err.status || 500);
+      err.status = err.status || 500;
+      res.status(err.status);
 
       res.render('error', {
           message: err.message,
