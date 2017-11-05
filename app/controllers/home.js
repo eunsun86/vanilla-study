@@ -163,15 +163,15 @@ router.post('/reservation', (req, res, next) => {
             let transporter = nodemailer.createTransport({
               service: 'gmail',
               auth: {
-                user: 'ken@vanillacoding.co',
+                user: 'admin@vanillacoding.co',
                 pass: GMAIL_PW
               }
             });
 
             const mailOptions = {
-              from: 'ken@vanillacoding.co',
+              from: 'admin@vanillacoding.co',
               to: req.body.email,
-              bcc: 'ken@vanillacoding.co',
+              bcc: 'admin@vanillacoding.co',
               subject: '바닐라 스터디 예약 확정',
               html: getEmailTemplate({
                 username: req.body.username,
