@@ -8,20 +8,19 @@
             <fieldset>
                 <div class="pure-control-group">
                     <label for="date">예약 날짜</label>
-                    <input type="text" name="date" class="pure-input-1-4" id="date" value="{{ date }}" readonly="readonly" required>
+                    <input type="text" name="date" class="pure-input-2-3" id="date" value="{{ date }}" readonly="readonly" required>
                 </div>
                 <div class="pure-control-group">
                     <label for="seat">예약 좌석</label>
-                    <input type="text" name="seat_number" class="pure-input-1-4" id="seat" value="{{ seat_number }}" readonly="readonly" required>
+                    <input type="text" name="seat_number" class="pure-input-2-3" id="seat" value="{{ seat_number }}" readonly="readonly" required>
                 </div>
                 <div class="pure-control-group">
                     <label for="username">예약자 이름</label>
-                    <input type="text" name="username" class="pure-input-1-4" id="username" value="{{ username }}" readonly="readonly" required>
+                    <input type="text" name="username" class="pure-input-2-3" id="username" value="{{ username }}" readonly="readonly" required>
                 </div>
                 <div class="pure-control-group">
                     <label for="password">비밀번호</label>
-                    <input type="password" name="password" class="pure-input-1-4" id="password" placeholder="삭제를 위한 비밀번호" required>
-                    <span class="pure-form-message-inline">필수 입력 사항입니다.</span>
+                    <input type="password" name="password" class="pure-input-2-3" id="password" placeholder="비밀번호를 입력해주세요. (필수)" required>
                 </div>
                 <div class="pure-controls">
                     <input class="button-error" type="button" id="delete-button" value="삭제" />

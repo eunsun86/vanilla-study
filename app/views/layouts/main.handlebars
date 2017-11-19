@@ -51,17 +51,5 @@
             </ul>
         </div>
     </footer>
-
-    <script type="text/javascript">
-        $(document).ready(function () {
-            var $window = $(window);
-
-            if ($window.width() < 1000 && window.location.pathname !== '/mobile-guide') {
-                window.location.href = '/mobile-guide';
-            } else if ($window.width() > 1000 && window.location.pathname === '/mobile-guide') {
-                window.location.href = '/';
-            }
-        });
-    </script>
 </body>
 </html>
