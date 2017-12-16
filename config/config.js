@@ -10,7 +10,7 @@ const config = {
       name: 'vanilla-study-development'
     },
     port: process.env.PORT || 3000,
-    db: `mongodb://Vanilla:${DB_PW}@development-shard-00-00-138f2.mongodb.net:27017,development-shard-00-01-138f2.mongodb.net:27017,development-shard-00-02-138f2.mongodb.net:27017/vanilla-study-development?ssl=true&replicaSet=Development-shard-0&authSource=admin`
+    db: `mongodb://Vanilla:${DB_PW}@development-shard-00-00-bqwt8.mongodb.net:27017,development-shard-00-01-bqwt8.mongodb.net:27017,development-shard-00-02-bqwt8.mongodb.net:27017/admin?replicaSet=development-shard-0&ssl=true`
   },
 
   production: {
@@ -19,7 +19,7 @@ const config = {
       name: 'vanilla-study-production'
     },
     port: process.env.PORT || 3000,
-    db: `mongodb://Vanilla:${DB_PW}@production-shard-00-00-138f2.mongodb.net:27017,production-shard-00-01-138f2.mongodb.net:27017,production-shard-00-02-138f2.mongodb.net:27017/vanilla-study-production?ssl=true&replicaSet=Production-shard-0&authSource=admin`
+    db: `mongodb://Vanilla:${DB_PW}@production-shard-00-00-alokq.mongodb.net:27017,production-shard-00-01-alokq.mongodb.net:27017,production-shard-00-02-alokq.mongodb.net:27017/admin?replicaSet=production-shard-0&ssl=true`
   }
 };
 
