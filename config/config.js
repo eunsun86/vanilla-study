@@ -23,6 +23,3 @@ const config = {
 };
 
 module.exports = config[env];
-
-
-vaN1LlacOd!nG
